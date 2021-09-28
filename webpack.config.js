@@ -10,10 +10,60 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "bundle.js",
+    environment: {
+      arrowFunction: false,
+    },
   },
 
   module: {
-    rules: [{ test: /\.ts$/, use: "ts-loader", exclude: /node-modules/ }],
+    rules: [
+      {
+        test: /\.ts$/,
+        use: [
+          {
+            loader: "babel-loader",
+            options: {
+              presets: [
+                [
+                  "@babel/preset-env",
+                  {
+                    targets: { chrome: "88" },
+                    corejs: "3",
+                    useBuiltIns: "usage",
+                  },
+                ],
+              ],
+            },
+          },
+          "ts-loader",
+        ],
+        exclude: /node_modules/,
+      },
+      {
+        test: /\.less$/,
+        use: [
+          "style-loader",
+          "css-loader",
+          {
+            loader: "postcss-loader",
+            options: {
+              postcssOptions: {
+                plugins: [
+                  [
+                    "postcss-preset-env",
+                    {
+                      // Options
+                      browsers: "last 2 versions",
+                    },
+                  ],
+                ],
+              },
+            },
+          },
+          "less-loader",
+        ],
+      },
+    ],
   },
   plugins: [
     new CleanWebpackPlugin(),
@@ -22,6 +72,6 @@ module.exports = {
     }),
   ],
   resolve: {
-    extentions: [".ts", ".js"],
+    extensions: [".ts", ".js"],
   },
 };

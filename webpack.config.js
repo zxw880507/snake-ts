@@ -5,6 +5,7 @@ const HTMLWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
 module.exports = {
+  devtool: "eval-source-map",
   mode: "development",
   entry: "./src/index.ts",
   output: {
@@ -12,6 +13,7 @@ module.exports = {
     filename: "bundle.js",
     environment: {
       arrowFunction: false,
+      const: false,
     },
   },
 

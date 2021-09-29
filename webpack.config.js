@@ -68,7 +68,8 @@ module.exports = {
   plugins: [
     new CleanWebpackPlugin(),
     new HTMLWebpackPlugin({
-      title: "Snake Game",
+      filename: "index.html",
+      template: "src/assets/index.html",
     }),
   ],
   resolve: {

@@ -5,6 +5,7 @@ SNAKE is an webapp game that allow user to control the moving direction of a sna
 ## Language & Framework
 
 - [x] TypeScript
+- [x] Less
 - [x] Webpack
 - [x] Babel
 

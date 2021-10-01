@@ -1,6 +1,6 @@
 # SNAKE GAME
 
-SNAKE is an webapp game that allow user to control the moving direction of a snake and eat food to grow its length. App has been deployed to Netlify and can be found [here](https://snake-zxw.netlify.app/).
+SNAKE is a webapp game that allow user to control the moving direction of a snake and eat food to grow its length. App has been deployed to Netlify and can be found [here](https://snake-zxw.netlify.app/).
 
 ## Language & Framework
 
